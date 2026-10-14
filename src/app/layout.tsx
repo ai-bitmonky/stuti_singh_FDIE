@@ -24,8 +24,8 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
-      <body className={`${inter.variable} ${manrope.variable} ${mono.variable}`}>{children}</body>
+    <html lang="en" className={`${inter.variable} ${manrope.variable} ${mono.variable}`}>
+      <body>{children}</body>
     </html>
   );
 }

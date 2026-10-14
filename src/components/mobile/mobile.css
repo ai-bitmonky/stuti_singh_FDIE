@@ -537,19 +537,20 @@
 /* =====================================================================
    MEDIA QUERIES
    ===================================================================== */
-@media (max-width:599px){
-  .mb{overflow:hidden;background:var(--bg)}
-  .mb .stage{display:block}
-  .mb .stage::before,.mb .stage-cap,.mb .island{display:none}
-  .mb .phone-wrap{width:100%!important;height:100%!important}
-  .mb .phone{position:absolute;inset:0;width:100%;height:100%;padding:0;border-radius:0;background:none;box-shadow:none;transform:none}
-  .mb .phone::before,.mb .phone::after{display:none}
-  .mb .device{width:100%;height:100%;border-radius:0}
-  .mb .app-root{border-radius:0}
-  .mb .sheet-open .app-root{border-radius:14px}
-  .mb{--sb:max(54px, env(safe-area-inset-top)); --hb:max(34px, env(safe-area-inset-bottom)); --gut:max(16px, env(safe-area-inset-left))}
-  .mb.native-chrome{--sb:max(env(safe-area-inset-top), 20px); --hb:max(env(safe-area-inset-bottom), 8px)}
-}
+/* Full-bleed: phones, tablets and any touch-first screen, or windows < 600px (class set in PhoneFrame) */
+.mb.full{overflow:hidden;background:var(--bg)}
+  .mb.full .stage{display:block}
+  .mb.full .stage::before,.mb.full .stage-cap,.mb.full .island{display:none}
+  .mb.full .phone-wrap{width:100%!important;height:100%!important}
+  .mb.full .phone{position:absolute;inset:0;width:100%;height:100%;padding:0;border-radius:0;background:none;box-shadow:none;transform:none}
+  .mb.full .phone::before,.mb.full .phone::after{display:none}
+  .mb.full .device{width:100%;height:100%;border-radius:0}
+  .mb.full .app-root{border-radius:0}
+  .mb.full .sheet-open .app-root{border-radius:14px}
+  .mb.full{--sb:max(54px, env(safe-area-inset-top)); --hb:max(34px, env(safe-area-inset-bottom)); --gut:max(16px, env(safe-area-inset-left))}
+  .mb.full.native-chrome{--sb:max(env(safe-area-inset-top), 20px); --hb:max(env(safe-area-inset-bottom), 8px)}
+/* Tablets: keep content at a comfortable width */
+@media (min-width:700px){ .mb.full .content{max-width:640px;margin-left:auto;margin-right:auto} }
 @media (prefers-reduced-motion: reduce){
   .mb *,.mb *::before,.mb *::after{animation-duration:.001ms!important;animation-delay:0s!important;transition-duration:.001ms!important}
   .mb .draw{stroke-dashoffset:0}

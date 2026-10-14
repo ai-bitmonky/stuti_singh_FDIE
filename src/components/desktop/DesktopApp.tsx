@@ -85,7 +85,8 @@ export default function DesktopApp({ onSwitch }: AppProps) {
     setDrawer((d) => ({ ...d, open: false }));
     pop.current?.close();
     const f = returnFocus.current;
-    if (f && document.contains(f)) f.focus({ preventScroll: true });
+    if (f && document.contains(f) && f !== document.body) f.focus({ preventScroll: true });
+    else if (document.activeElement instanceof HTMLElement && document.activeElement.closest('.drawer')) document.activeElement.blur();
   }, []);
 
   const applyBudget = useCallback(
